@@ -6,10 +6,10 @@ metadata:
   name: mysql-cluster-with-volume
 spec:
   accessModes:
-  - ReadWriteOnly
+  - ReadWriteOnce
   capacity:
     storage: 10Gi
   hostPath:
     path: /tmp/data
   persistentVolumeReclaimPolicy: Recycle
-  storageClassName: manual
+  storageClassName: mysql-sc

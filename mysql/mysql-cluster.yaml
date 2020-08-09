@@ -1,4 +1,3 @@
-#apiVersion: mysql.oracle.com/v1
 apiVersion: mysql.oracle.com/v1alpha1
 kind: Cluster
 metadata:
@@ -7,19 +6,19 @@ metadata:
 spec:
   members: 3
 #  replicas: 3
-  rootPasswordSecret:
-    name: mysql-root-password
-  config:
-    name: mysql-config
-  nodeSelector:
-    app: mysql
+#  rootPasswordSecret:
+#    name: mysql-root-password
+#  config:
+#    name: mysql-config
+#  nodeSelector:
+#    app: mysql
 #  volumeClaimTemplate:
 #    metadata:
 #      name: data
 #    spec:
-#      storageClassName: manual
+#      storageClassName: oci-bv
 #      accessModes:
-#        - ReadWriteMany
+#        - ReadWriteOnce
 #      resources:
 #        requests:
-#          storage: 1Gi
+#          storage: 10Gi

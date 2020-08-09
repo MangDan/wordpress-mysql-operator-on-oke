@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wordpress
@@ -6,19 +6,23 @@ metadata:
   labels:
     app: wordpress
 spec:
+  selector:
+    matchLabels:
+      app: wordpress
   template:
     metadata:
       labels:
         app: wordpress
     spec:
-      nodeSelector:
-        kubernetes.io/hostname: 10.0.10.4
+#      nodeSelector:
+#        kubernetes.io/hostname: 10.0.10.4
       containers:
       - name: wordpress
         image: wordpress:5.4.2-php7.2-apache
         env:
         - name: WORDPRESS_DB_HOST
-          value: mysql.mysql-cluster
+#          value: mysql.mysql-cluster
+          value: mysql-cluster-mysql-master.mysql-cluster
         - name: WORDPRESS_DB_USER
           value: root
         - name: WORDPRESS_DB_PASSWORD
